@@ -1,66 +1,10 @@
-// Критерии приема
-// Создан репозиторий goit-js-hw-07
-// При сдаче домашней работы есть две ссылки: на исходные файлы и рабочую страницу на GitHub pages
-// Задание выполнено строго по ТЗ
-// Каждое задание выполнено в отдельном файле с именем task-номер_задания.js.
-// При посещении рабочей страницы (GitHub pages) задания, в консоли нету ошибок и предупреждений
-// Имена переменных и функций понятные, описательные
-// Код отформатирован с помощью Prettier
-// Стартовые файлы
-// В папке src ты найдешь стартовые файлы проекта с базовой разметкой и подключенными файлами скриптов для каждого задания.
 
-// Задание 1
-// В HTML есть список категорий ul#categories.
+const categoriesEl = document.querySelector('#categories');
+console.log(`В списке ${categoriesEl.children.length} категории.`);
 
-// <ul id="categories">
-//   <li class="item">
-//     <h2>Животные</h2>
 
-//     <ul>
-//       <li>Кот</li>
-//       <li>Хомяк</li>
-//       <li>Лошадь</li>
-//       <li>Попугай</li>
-//     </ul>
-//   </li>
-//   <li class="item">
-//     <h2>Продукты</h2>
 
-//     <ul>
-//       <li>Хлеб</li>
-//       <li>Петрушка</li>
-//       <li>Творог</li>
-//     </ul>
-//   </li>
-//   <li class="item">
-//     <h2>Технологии</h2>
-
-//     <ul>
-//       <li>HTML</li>
-//       <li>CSS</li>
-//       <li>JavaScript</li>
-//       <li>React</li>
-//       <li>Node</li>
-//     </ul>
-//   </li>
-// </ul>
-// Напиши скрипт, который выполнит следующие операции.
-
-// Посчитает и выведет в консоль количество категорий в ul#categories, то есть элементов li.item. Получится 'В списке 3 категории.'.
-
-// Для каждого элемента li.item в списке ul#categories, найдет и выведет в консоль текст заголовка элемента (тега h2) и количество элементов в категории (всех вложенных в него элементов li).
-
-// Например для первой категории получится:
-
-// Категория: Животные
-// Количество элементов: 4
-
-const fullLiRef = document.querySelectorAll('.item');
-
-console.log( "Количество категорий:", fullLiRef.length);
-fullLiRef.forEach(categories => {
-  const h2Ref = categories.querySelector('h2');
-  const liRef = categories.querySelectorAll('li')
-  console.log(`Категория: ${h2Ref.textContent}`);
-  console.log(`Количество элементов: ${liRef.length}`);
+const itemsEl = document.querySelectorAll('li.item');
+itemsEl.forEach(item => {
+    console.log(`Категория: ${item.firstElementChild.textContent}, Количество элементов: ${item.querySelectorAll('li').length}`);
 });
